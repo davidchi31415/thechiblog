@@ -10,7 +10,9 @@ import matter from 'gray-matter';
 import NextLink from 'next/link';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 
-const BlogPage = ({ frontmatter: { title, date, description, genre }, content, slug }) => {
+const BlogPage = ({ frontmatter: { title, date, description, genre, tags }, content, slug }) => {
+    const splitTags = tags ? tags.split(" ") : [];
+
     return (
         <BaseLayout content={
             <Box className={markdownStyles["markdown-body"]} pt="5em">
@@ -19,9 +21,15 @@ const BlogPage = ({ frontmatter: { title, date, description, genre }, content, s
                         Back
                     </Button>
                 </NextLink>
-                <Flex gap="0.3em" mb="1.5em">
-                    <Box className={blogStyles.blog__date}>{date}</Box>
+                <Box className={blogStyles.blog__date}>{date}</Box>
+                <Flex gap="0.3em" mb="1em">
                     <Box className={blogStyles.blog__genre}>{genre}</Box>
+                    {splitTags.length ? 
+                        splitTags.map(tag => 
+                        <Box className={blogStyles.blog__tag}>{tag}</Box>    
+                        )
+                        : ""
+                    }
                 </Flex>
                 <Text color="teal" fontSize="3.3rem" fontWeight="bold">{title}</Text>
                 <hr className={blogStyles.line} style={{"marginTop": "-0.8em"}} />

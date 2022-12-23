@@ -3,6 +3,7 @@ title: 'The Curious Case of Disordered Proteins'
 date: '12/22/2022'
 description: 'Intrinsically disordered proteins — a paradigm-shattering phenomenon, a "dark matter" of biology, and a key to modern medicine?'
 genre: 'Research'
+tags: 'IDP Biochemistry'
 ---
 Outline:
 

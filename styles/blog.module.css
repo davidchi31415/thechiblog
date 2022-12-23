@@ -1,5 +1,11 @@
+.blog__date {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0.45em;
+    padding-left: 0;
+}
+
 .blog__genre {
-    color: #319795;
     font-weight: bold;
     border: solid 2px #285E61;
     padding: 0.3em;
@@ -8,8 +14,7 @@
     background-color: #E6FFFA;
 }
 
-.blog__date {
-    color: #DD6B20;
+.blog__tag {
     font-weight: bold;
     border: solid 2px #9C4221;
     padding: 0.3em;

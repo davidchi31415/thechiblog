@@ -29,6 +29,7 @@ const HomeHero = ({ onDoneAnimating }) => {
             position="relative"
             width="38em"
             height="20em"
+            mr="1em"
         >
             <ScaleFade in={inThe}>
                 <Text position="absolute" left="0.2em" top="0.2em" fontSize="5rem">The</Text>
