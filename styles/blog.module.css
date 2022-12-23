@@ -1,0 +1,19 @@
+.blog__genre {
+    color: #319795;
+    font-weight: bold;
+    border: solid 2px #285E61;
+    padding: 0.3em;
+    border-radius: 0.5em;
+    text-align: center;
+    background-color: #E6FFFA;
+}
+
+.blog__date {
+    color: #DD6B20;
+    font-weight: bold;
+    border: solid 2px #9C4221;
+    padding: 0.3em;
+    border-radius: 0.5em;
+    text-align: center;
+    background-color: #FFFAF0;
+}

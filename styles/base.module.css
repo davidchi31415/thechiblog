@@ -1,0 +1,26 @@
+/* Base Layout */
+@media (width < 30em) {
+    .base__layout {
+        width: 312px;
+    }
+}
+@media (30em <= width < 48em) {
+    .base__layout {
+        width: 472px;
+    }
+}
+@media (48em <= width < 62em) {
+    .base__layout {
+        width: 760px;
+    }
+}
+@media (62em <= width < 80em) {
+    .base__layout {
+        width: 984px;
+    }
+}
+@media (80em <= width) {
+    .base__layout {
+        width: 1150px;
+    }
+}
