@@ -1,7 +1,11 @@
 /* Base Layout */
+
 @media (width < 30em) {
     .base__layout {
         width: 312px;
+    }
+    .base__mobile__navbar {
+        padding: 0 0.25em;
     }
 }
 @media (30em <= width < 48em) {
@@ -12,6 +16,9 @@
 @media (48em <= width < 62em) {
     .base__layout {
         width: 760px;
+    }
+    .base__mobile__navbar {
+        padding: 0 0.5em;
     }
 }
 @media (62em <= width < 80em) {

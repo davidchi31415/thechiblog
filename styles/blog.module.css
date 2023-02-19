@@ -16,9 +16,9 @@
 
 .blog__tag {
     font-weight: bold;
-    border: solid 2px #9C4221;
+    border: solid 2px #2D3748;
     padding: 0.3em;
     border-radius: 0.5em;
     text-align: center;
-    background-color: #FFFAF0;
+    background-color: #E2E8F0;
 }

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Box, Flex, Text, ScaleFade } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
-const HomeHero = ({ onDoneAnimating }) => {
+const HomeHero = ({ isMobile }) => {
     const [animating, setAnimating] = useState(false);
     const [inThe, setThe] = useState(false);
     const [inChi, setChi] = useState(false);
@@ -20,7 +20,6 @@ const HomeHero = ({ onDoneAnimating }) => {
             setBlog(true);
             await sleep(500);
             setText(true);
-            onDoneAnimating();
         }
         if (!animating) animate();
     }, [animating]);
@@ -29,14 +28,14 @@ const HomeHero = ({ onDoneAnimating }) => {
             position="relative"
             width="38em"
             height="20em"
-            mr="1em"
+            mb={isMobile ? "4em" : ""}
         >
             <ScaleFade in={inThe}>
-                <Text position="absolute" left="0.2em" top="0.2em" fontSize="5rem">The</Text>
+                <Text position="absolute" left={isMobile ? "3em" : "0.2em"} top="0.2em" fontSize="5rem">The</Text>
             </ScaleFade>
             <ScaleFade in={inChi}>
-                <Text position="absolute" left="0.8em" top={0} fontSize="12rem">Chi</Text>
-                <Flex position="absolute" top="5em" left="23.1em" width="4em" height="9em" justify="center" align="flex-end" backgroundColor="white">
+                <Text position="absolute" left="0.8em" top={isMobile ? "0.3em" : 0} fontSize="12rem">Chi</Text>
+                <Flex position="absolute" top={isMobile ? "8.6em" : "5em"} left="23.1em" width="4em" height="9em" justify="center" align="flex-end" backgroundColor="white">
                     <Box className="home__hero__stick__body" position="relative" width="1em" height="5em" backgroundColor="black">
                         <motion.div
                             whileHover={{ scale: 1.2 }}
@@ -58,10 +57,10 @@ const HomeHero = ({ onDoneAnimating }) => {
                 </Flex>
             </ScaleFade>
             <ScaleFade in={inBlog}>
-                <Text position="absolute" right="0.1em" top="2em" fontSize="5rem">Blog</Text>
+                <Text position="absolute" right={isMobile ? "2.7em" : "0.1em"} top={isMobile ? "3.4em" : "2em"} fontSize="5rem">Blog</Text>
             </ScaleFade>
             <ScaleFade in={inText}>
-                <Text position="absolute" left="3.5em" top="8.8em" fontSize="2rem" fontStyle="italic">brought to you by David Chi</Text>
+                <Text position="absolute" left={isMobile ? "8.5em" : "3.5em"} top={isMobile ? "19em" : "8.8em"} fontSize={isMobile ? "1.3rem" : "2rem"} fontStyle="italic">brought to you by David Chi</Text>
             </ScaleFade>
         </Box>
     );

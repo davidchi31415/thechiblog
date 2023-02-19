@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Head from "next/head";
 import NextLink from 'next/link';
 import {
   Box,
@@ -28,7 +29,8 @@ const HamburgerMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <>
+    <Flex justify="space-between" width="100%">
+      <Logo />
       <IconButton
         variant="unstyled"
         icon={<HiMenuAlt4 size={45} />}
@@ -92,7 +94,7 @@ const HamburgerMenu = () => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </>
+    </Flex>
   );
 };
 
@@ -130,25 +132,19 @@ const BaseNavbar = () => {
     >
       <Logo />
       <Flex
-        gap="1.5em"
+        gap="1.25em"
         justifySelf="flex-end"
         fontWeight="600"
         fontSize="1.5rem"
       >
-        <NextLink href={'/subscribe'} passHref>
-          <Link _hover={{ textDecoration: "none" }}>
-            Subscribe
-          </Link>
+        <NextLink href='/subscribe'>
+          Subscribe
         </NextLink>
-        <NextLink href={'/about'} passHref>
-          <Link _hover={{ textDecoration: "none" }}>
-            About
-          </Link>
+        <NextLink href={'/about'}>
+          About
         </NextLink>
-        <NextLink href={'/contact'} passHref>
-          <Link _hover={{ textDecoration: "none" }}>
-            Contact
-          </Link>
+        <NextLink href={'/contact'}>
+          Contact
         </NextLink>
       </Flex>
     </Flex>
@@ -176,13 +172,29 @@ const BaseFooter = () => {
 };
 
 const BaseLayout = ({ content }) => {
+  const [isMobile] = useMediaQuery('(max-width: 768px)');
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!loaded) setLoaded(true);
+  }, [loaded]);
+
   return (
-    <Flex justifyContent="center" overflowX="hidden" overflowY="hidden">
-      <Box className={styles.base__layout} m={0} p={0}>
-        <BaseContainer content={content} />
-        <BaseFooter />
-      </Box>
-    </Flex>
+    <>
+      <Head>
+          <title>The Chi Blog</title>
+          <meta name="description" content="A blog about research, projects, and more." />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Flex justifyContent="center" overflowX="hidden" overflowY="hidden">
+        <Box className={styles.base__layout} m={0} p={0}>
+          { (loaded) ? (isMobile) ? <MobileBaseNavbar /> : <BaseNavbar /> : <MobileBaseNavbar /> }
+          <BaseContainer content={content} />
+          <BaseFooter />
+        </Box>
+      </Flex>
+    </>
   );
 };
 
