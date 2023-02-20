@@ -36,10 +36,11 @@ const BlogPage = ({ frontmatter: { title, date, description, genre, tags }, cont
                 </Flex>
                 <Text color="teal" fontSize="3.3rem" fontWeight="bold" textAlign="center">{title}</Text>
                 <ReactMarkdown
-                    children={content}
                     remarkPlugins={[remarkMath]}
                     rehypePlugins={[rehypeKatex]}
-                />            
+                >
+                    {content}
+                </ReactMarkdown>            
             </Box>
         } />
     )
